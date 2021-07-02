@@ -4,6 +4,7 @@ import com.springjdbc.learn.service.User;
 import com.springjdbc.learn.service.UserService;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
@@ -18,7 +19,9 @@ import javax.sql.DataSource;
 @Configuration
 @ComponentScan
 @EnableTransactionManagement //启动声明式事务
+@MapperScan("com.springjdbc.learn.mapper")
 @PropertySource("jdbc.properties")
+
 public class AppConfig {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
